@@ -1,0 +1,3 @@
+# Technology Blog Project Root
+This project contains the complete production-ready MERN backend and frontend.
+See README.md for complete details.

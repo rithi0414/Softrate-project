@@ -1,0 +1,32 @@
+{
+  "name": "technology-blog-zoho",
+  "version": "1.0.0",
+  "description": "Production-Ready MERN Technology Blog Website inspired by Zoho Blog",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && npm run seed",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "build:client": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [
+    "mern",
+    "blog",
+    "zoho",
+    "react",
+    "express",
+    "mongodb",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "mongodb": "^7.9.0"
+  }
+}
