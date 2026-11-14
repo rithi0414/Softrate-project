@@ -51,6 +51,10 @@ function App() {
 
         {/* Admin Login */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin-panel" element={<Navigate to="/admin/login" replace />} />
+        <Route path="/adminpanel" element={<Navigate to="/admin/login" replace />} />
+        <Route path="/admin/panel" element={<Navigate to="/admin/login" replace />} />
+        <Route path="/admin/pannel" element={<Navigate to="/admin/login" replace />} />
 
         {/* Protected Admin CMS Routes */}
         <Route

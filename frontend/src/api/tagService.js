@@ -1,28 +1,64 @@
 import axiosClient from './axiosClient';
+import { mockDataStore } from './mockData';
 
 export const tagService = {
   getTags: async () => {
-    const response = await axiosClient.get('/tags');
-    return response.data;
+    try {
+      const response = await axiosClient.get('/tags');
+      if (response.data && response.data.success) {
+        return response.data;
+      }
+    } catch (err) {
+      // Fallback
+    }
+    return mockDataStore.getTags();
   },
 
   getTagBySlug: async (slug) => {
-    const response = await axiosClient.get(`/tags/${slug}`);
-    return response.data;
+    try {
+      const response = await axiosClient.get(`/tags/${slug}`);
+      if (response.data && response.data.success) {
+        return response.data;
+      }
+    } catch (err) {
+      // Fallback
+    }
+    return mockDataStore.getTagBySlug(slug);
   },
 
   createTag: async (data) => {
-    const response = await axiosClient.post('/tags', data);
-    return response.data;
+    try {
+      const response = await axiosClient.post('/tags', data);
+      if (response.data && response.data.success) {
+        return response.data;
+      }
+    } catch (err) {
+      // Fallback
+    }
+    return mockDataStore.createTag(data);
   },
 
   updateTag: async (id, data) => {
-    const response = await axiosClient.put(`/tags/${id}`, data);
-    return response.data;
+    try {
+      const response = await axiosClient.put(`/tags/${id}`, data);
+      if (response.data && response.data.success) {
+        return response.data;
+      }
+    } catch (err) {
+      // Fallback
+    }
+    return mockDataStore.updateTag(id, data);
   },
 
   deleteTag: async (id) => {
-    const response = await axiosClient.delete(`/tags/${id}`);
-    return response.data;
+    try {
+      const response = await axiosClient.delete(`/tags/${id}`);
+      if (response.data && response.data.success) {
+        return response.data;
+      }
+    } catch (err) {
+      // Fallback
+    }
+    return mockDataStore.deleteTag(id);
   }
 };

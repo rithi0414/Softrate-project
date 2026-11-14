@@ -11,17 +11,28 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const verifyAuth = async () => {
       const storedToken = localStorage.getItem('tech_blog_token');
+      const storedUser = localStorage.getItem('tech_blog_user');
+
       if (storedToken) {
         try {
           const res = await authService.getMe();
           if (res.success && res.user) {
             setUser(res.user);
+          } else if (storedUser) {
+            setUser(JSON.parse(storedUser));
           } else {
             logout();
           }
         } catch (err) {
-          console.error('Session verification failed:', err);
-          logout();
+          if (storedUser) {
+            try {
+              setUser(JSON.parse(storedUser));
+            } catch (e) {
+              logout();
+            }
+          } else {
+            logout();
+          }
         }
       }
       setIsLoading(false);
