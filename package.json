@@ -9,6 +9,7 @@
     "client": "cd frontend && npm run dev",
     "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
     "build:client": "cd frontend && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "start": "cd backend && npm start"
   },
   "keywords": [
